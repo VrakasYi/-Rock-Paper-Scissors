@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+    function getRandomInt() {
+      return Math.floor(Math.random() * 3);
+    }
+    function getComputerChoice() {
+      let cC = getRandomInt();
+      if (cC == 0) {
+        return "Rock";
+      } else if (cC == 1) {
+        return "Paper";
+      } else {
+        return "Scissors";
+      }
+    }
+    function playRound(playerSelection, computerSelection) {
+      playerSelection = playerSelection.toLowerCase();
+      computerSelection = computerSelection.toLowerCase();
+      alert("Computer picks " + computerSelection)
+      if (playerSelection === "rock" && computerSelection === "scissors") {
+        pscore = pscore + 1
+        return "You win! Rock beats Scissors"
+      } else if (playerSelection === "rock" && computerSelection === "paper") {
+        cscore = cscore + 1
+        return "You lose! Paper beats Rock"
+      } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        cscore = cscore + 1
+        return "You lose! Scissors beats Paper"
+      } else if (playerSelection === "paper" && computerSelection === "rock") {
+        pscore = pscore + 1
+        return "You win! Paper beats Rock"
+      } else  if (playerSelection === "scissors" && computerSelection === "paper") {
+        pscore = pscore + 1
+        return "You win! Scissors beats Paper"
+      } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        cscore = cscore + 1
+        return "You lose! Rock beats Scissors"
+      } else {
+        return "Tie!"
+      }
+    }
+    
+    function game() {
+      let i = 1
+      let playerSelection;
+      while (i <= 5) {
+        let computerSelection = getComputerChoice();
+        playerSelection = prompt("Type 'rock', 'paper' or 'scissors'." )
+        console.log(playRound(playerSelection, computerSelection));
+        console.log("Player score: " + pscore + "\nComputer score: " + cscore)
+        if (pscore === 3) {
+          alert("You win the game!")
+          i = 6
+        } else if (cscore === 3) {
+          alert("You lose the game!")
+          i = 6
+        }
+        i++
+      }
+      alert("Player score: " + pscore + "\nComputer score: " + cscore)
+    }
+    let pscore = 0
+    let cscore = 0
+    game()
+
+  </script>
+</body>
+</html>
