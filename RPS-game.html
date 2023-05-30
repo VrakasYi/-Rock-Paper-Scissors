@@ -5,6 +5,10 @@
   <title>Page Title</title>
 </head>
 <body>
+  <button class="rock">Rock</button>
+  <button class="paper">Paper</button>
+  <button class="scissors">Scissors</button>
+
   <script>
     function getRandomInt() {
       return Math.floor(Math.random() * 3);
@@ -19,6 +23,7 @@
         return "Scissors";
       }
     }
+
     function playRound(playerSelection, computerSelection) {
       playerSelection = playerSelection.toLowerCase();
       computerSelection = computerSelection.toLowerCase();
@@ -48,26 +53,45 @@
     
     function game() {
       let i = 1
-      let playerSelection;
+      //let playerSelection;
       while (i <= 5) {
         let computerSelection = getComputerChoice();
-        playerSelection = prompt("Type 'rock', 'paper' or 'scissors'." )
+        //playerSelection = prompt("Type 'rock', 'paper' or 'scissors'." )
         console.log(playRound(playerSelection, computerSelection));
         console.log("Player score: " + pscore + "\nComputer score: " + cscore)
-        if (pscore === 3) {
-          alert("You win the game!")
-          i = 6
-        } else if (cscore === 3) {
-          alert("You lose the game!")
-          i = 6
-        }
-        i++
+        // if (pscore === 3) {
+        //   alert("You win the game!")
+        //   i = 6
+        // } else if (cscore === 3) {
+        //   alert("You lose the game!")
+        //   i = 6
+        // }
+        // i++
       }
       alert("Player score: " + pscore + "\nComputer score: " + cscore)
     }
-    let pscore = 0
-    let cscore = 0
-    game()
+
+    const rock = document.querySelector('.rock');
+    rock.addEventListener('click', function() {
+      game();
+      playRound('rock', computerSelection)
+    });
+
+    const paper  = document.querySelector('.paper')
+    paper.addEventListener('click', function() {
+      game();
+      playRound('paper', computerSelection);
+    });
+
+    const scissors = document.querySelector('.scissors')
+    scissors.addEventListener('click', function() {
+      game();
+      playRound('scissors', computerSelection);
+    });
+
+    let pscore = 0;
+    let cscore = 0;
+
   </script>
 </body>
 </html>
