@@ -8,6 +8,7 @@
   <button class="rock">Rock</button>
   <button class="paper">Paper</button>
   <button class="scissors">Scissors</button>
+  <div id="scoreDisplay"></div>
 
   <script>
     function getRandomInt() {
@@ -51,14 +52,14 @@
       }
     }
     
-    function game() {
-      let i = 1
-      //let playerSelection;
-      while (i <= 5) {
-        let computerSelection = getComputerChoice();
+    // function game() {
+    //   let i = 1
+      // //let playerSelection;
+      // while (i <= 5) {
+      //   let computerSelection = getComputerChoice();
         //playerSelection = prompt("Type 'rock', 'paper' or 'scissors'." )
-        console.log(playRound(playerSelection, computerSelection));
-        console.log("Player score: " + pscore + "\nComputer score: " + cscore)
+        // console.log(playRound(playerSelection, computerSelection));
+        // console.log("Player score: " + pscore + "\nComputer score: " + cscore)
         // if (pscore === 3) {
         //   alert("You win the game!")
         //   i = 6
@@ -67,26 +68,26 @@
         //   i = 6
         // }
         // i++
-      }
-      alert("Player score: " + pscore + "\nComputer score: " + cscore)
-    }
+    //   }
+    //   alert("Player score: " + pscore + "\nComputer score: " + cscore)
+    // }
 
     const rock = document.querySelector('.rock');
     rock.addEventListener('click', function() {
-      game();
-      playRound('rock', computerSelection)
+      //game();
+      playRound('rock', getComputerChoice())
     });
 
     const paper  = document.querySelector('.paper')
     paper.addEventListener('click', function() {
-      game();
-      playRound('paper', computerSelection);
+      //game();
+      playRound('paper', getComputerChoice());
     });
 
     const scissors = document.querySelector('.scissors')
     scissors.addEventListener('click', function() {
-      game();
-      playRound('scissors', computerSelection);
+      //game();
+      playRound('scissors', getComputerChoice());
     });
 
     let pscore = 0;
