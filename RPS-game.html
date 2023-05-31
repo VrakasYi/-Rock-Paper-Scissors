@@ -8,7 +8,7 @@
   <button class="rock">Rock</button>
   <button class="paper">Paper</button>
   <button class="scissors">Scissors</button>
-  <div id="scoreDisplay"></div>
+  <div id="scoreDisplay">Player: 0 - AI: 0</div>
 
   <script>
     function getRandomInt() {
@@ -28,70 +28,73 @@
     function playRound(playerSelection, computerSelection) {
       playerSelection = playerSelection.toLowerCase();
       computerSelection = computerSelection.toLowerCase();
-      alert("Computer picks " + computerSelection)
+      alert("AI picks " + computerSelection)
       if (playerSelection === "rock" && computerSelection === "scissors") {
         pscore = pscore + 1
+        scoreDisplay.textContent = `Player: ${pscore} - AI: ${cscore}`;
         return "You win! Rock beats Scissors"
       } else if (playerSelection === "rock" && computerSelection === "paper") {
         cscore = cscore + 1
+        scoreDisplay.textContent = `Player: ${pscore} - AI: ${cscore}`;
         return "You lose! Paper beats Rock"
       } else if (playerSelection === "paper" && computerSelection === "scissors") {
         cscore = cscore + 1
+        scoreDisplay.textContent = `Player: ${pscore} - AI: ${cscore}`;
         return "You lose! Scissors beats Paper"
       } else if (playerSelection === "paper" && computerSelection === "rock") {
         pscore = pscore + 1
+        scoreDisplay.textContent = `Player: ${pscore} - AI: ${cscore}`;
         return "You win! Paper beats Rock"
       } else  if (playerSelection === "scissors" && computerSelection === "paper") {
         pscore = pscore + 1
+        scoreDisplay.textContent = `Player: ${pscore} - AI: ${cscore}`;
         return "You win! Scissors beats Paper"
       } else if (playerSelection === "scissors" && computerSelection === "rock") {
         cscore = cscore + 1
+        scoreDisplay.textContent = `Player: ${pscore} - AI: ${cscore}`;
         return "You lose! Rock beats Scissors"
       } else {
         return "Tie!"
       }
     }
     
-    // function game() {
-    //   let i = 1
-      // //let playerSelection;
-      // while (i <= 5) {
-      //   let computerSelection = getComputerChoice();
-        //playerSelection = prompt("Type 'rock', 'paper' or 'scissors'." )
-        // console.log(playRound(playerSelection, computerSelection));
-        // console.log("Player score: " + pscore + "\nComputer score: " + cscore)
-        // if (pscore === 3) {
-        //   alert("You win the game!")
-        //   i = 6
-        // } else if (cscore === 3) {
-        //   alert("You lose the game!")
-        //   i = 6
-        // }
-        // i++
-    //   }
-    //   alert("Player score: " + pscore + "\nComputer score: " + cscore)
-    // }
+    function game(choice) {
+      if (i <= 4) {
+        alert(playRound(choice, getComputerChoice()))
+        console.log(i)
+      } 
+      if (i > 4) {
+        alert('Game Over');
+      }
+      i++
+    }
 
     const rock = document.querySelector('.rock');
     rock.addEventListener('click', function() {
-      //game();
-      playRound('rock', getComputerChoice())
+      game('rock');
+      
+      //playRound('rock', getComputerChoice())
     });
 
     const paper  = document.querySelector('.paper')
     paper.addEventListener('click', function() {
-      //game();
-      playRound('paper', getComputerChoice());
+      game('paper');
+      
+      //playRound('paper', getComputerChoice());
     });
 
     const scissors = document.querySelector('.scissors')
     scissors.addEventListener('click', function() {
-      //game();
-      playRound('scissors', getComputerChoice());
+      game('scissors');
+      
+      //playRound('scissors', getComputerChoice());
     });
+
+    const scoreDisplay = document.querySelector('#scoreDisplay')
 
     let pscore = 0;
     let cscore = 0;
+    let i = 0;
 
   </script>
 </body>
